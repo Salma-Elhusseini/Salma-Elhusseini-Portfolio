@@ -92,7 +92,7 @@ const CONTACT = {
 
   /* OPTIONAL: paste a Formspree / Getform endpoint (e.g. "https://formspree.io/f/xxxx")
      to receive form messages directly. Leave empty to open the visitor's email app instead. */
-  formEndpoint: "",
+  formEndpoint: "https://script.google.com/macros/s/AKfycbz6i-Ox6uQvN0DuEA35m93tLk1MxfIsrsmssZ7p25cVCqKdePQApn-N8P2CWkLrbToCzA/exec",
 
   /* Contact detail items (add href to make an item clickable) */
   items: [
