@@ -385,15 +385,11 @@ contactForm.addEventListener('submit', async e => {
   try {
     if (CONTACT.formEndpoint) {
       btn.disabled = true;
-      //const res = 
       await fetch(CONTACT.formEndpoint, {
         method: 'POST',
-        mode: 'no-cors', //
-        //headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        //body: JSON.stringify(data),
-        body: new URLSearchParams(data), //
+        mode: 'no-cors',
+        body: new URLSearchParams(data), 
       });
-      //if (!res.ok) throw new Error('Request failed');
       text = "✓ Message sent! I'll get back to you within 24 hours.";
     } else {
       const body = `${data.message}\n\n— ${data.fname} ${data.lname}`.trim() + ` (${data.email})`;
