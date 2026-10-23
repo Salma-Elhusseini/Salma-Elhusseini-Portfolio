@@ -258,6 +258,7 @@ document.addEventListener('click', e => {
   if (!el) return;
   e.preventDefault();
   showPage(el.dataset.page);
+  bootstrap.Offcanvas.getInstance(document.getElementById('navDrawer'))?.hide();
 });
 window.addEventListener('popstate', () => showPage(location.hash.slice(1), false));
 
@@ -384,12 +385,15 @@ contactForm.addEventListener('submit', async e => {
   try {
     if (CONTACT.formEndpoint) {
       btn.disabled = true;
-      const res = await fetch(CONTACT.formEndpoint, {
+      //const res = 
+      await fetch(CONTACT.formEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data),
+        mode: 'no-cors', //
+        //headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        //body: JSON.stringify(data),
+        body: new URLSearchParams(data), //
       });
-      if (!res.ok) throw new Error('Request failed');
+      //if (!res.ok) throw new Error('Request failed');
       text = "✓ Message sent! I'll get back to you within 24 hours.";
     } else {
       const body = `${data.message}\n\n— ${data.fname} ${data.lname}`.trim() + ` (${data.email})`;
